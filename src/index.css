@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* ─── LIGHT MODE ─────────────────────────────────────────── */
+:root {
+  --button-outline: rgba(0,0,0, .06);
+  --badge-outline: rgba(0,0,0, .04);
+
+  --opaque-button-border-intensity: -6;
+
+  --elevate-1: rgba(0,0,0, .025);
+  --elevate-2: rgba(0,0,0, .06);
+
+  /* Warm cream white — main canvas */
+  --background: 42 35% 97%;
+
+  /* Deep soft graphite — readable, not harsh black */
+  --foreground: 220 12% 20%;
+
+  /* Very subtle sage-tinted border — almost invisible */
+  --border: 120 8% 88%;
+
+  /* Warm card surface — lifts slightly off background */
+  --card: 40 28% 96%;
+  --card-foreground: 220 12% 20%;
+  --card-border: 120 6% 90%;
+
+  /* Very light sage green — Parallel's signature sidebar tone */
+  --sidebar: 120 14% 93%;
+  --sidebar-foreground: 220 12% 20%;
+  --sidebar-border: 120 8% 88%;
+  --sidebar-primary: 267 28% 56%;
+  --sidebar-primary-foreground: 42 35% 97%;
+  --sidebar-accent: 120 14% 89%;
+  --sidebar-accent-foreground: 220 12% 20%;
+  --sidebar-ring: 267 28% 56%;
+
+  --popover: 42 35% 97%;
+  --popover-foreground: 220 12% 20%;
+  --popover-border: 120 8% 88%;
+
+  /* Muted lilac — primary accent */
+  --primary: 267 28% 56%;
+  --primary-foreground: 42 35% 97%;
+
+  /* Soft stone secondary */
+  --secondary: 40 20% 93%;
+  --secondary-foreground: 220 12% 20%;
+
+  /* Muted surfaces */
+  --muted: 42 20% 94%;
+  --muted-foreground: 220 8% 52%;
+
+  /* Sage accent for highlighted states */
+  --accent: 120 16% 88%;
+  --accent-foreground: 220 12% 20%;
+
+  --destructive: 4 72% 58%;
+  --destructive-foreground: 42 35% 97%;
+
+  --input: 120 8% 88%;
+  --ring: 267 28% 56%;
+
+  --chart-1: 267 28% 56%;
+  --chart-2: 120 20% 52%;
+  --chart-3: 32 60% 62%;
+  --chart-4: 200 40% 58%;
+  --chart-5: 340 30% 60%;
+
+  /* DM Sans for body, Playfair Display for headings */
+  --app-font-sans: 'DM Sans', system-ui, sans-serif;
+  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-mono: 'Menlo', monospace;
+
+  /* 12px base radius — soft and architectural */
+  --radius: 0.75rem;
+
+  /* Elegant warm shadows — barely there, deeply refined */
+  --shadow-2xs: 0 1px 2px 0 hsl(220 12% 18% / 0.04);
+  --shadow-xs:  0 1px 3px 0 hsl(220 12% 18% / 0.05), 0 1px 2px -1px hsl(220 12% 18% / 0.04);
+  --shadow-sm:  0 2px 4px 0 hsl(220 12% 18% / 0.05), 0 1px 3px -1px hsl(220 12% 18% / 0.04);
+  --shadow:     0 4px 8px -1px hsl(220 12% 18% / 0.07), 0 2px 4px -2px hsl(220 12% 18% / 0.04);
+  --shadow-md:  0 8px 16px -3px hsl(220 12% 18% / 0.08), 0 4px 6px -4px hsl(220 12% 18% / 0.04);
+  --shadow-lg:  0 16px 28px -5px hsl(220 12% 18% / 0.09), 0 8px 10px -6px hsl(220 12% 18% / 0.04);
+  --shadow-xl:  0 24px 40px -8px hsl(220 12% 18% / 0.10), 0 12px 16px -8px hsl(220 12% 18% / 0.04);
+  --shadow-2xl: 0 40px 64px -12px hsl(220 12% 18% / 0.14);
+
+  --tracking-normal: -0.01em;
+  --spacing: 0.25rem;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* ─── DARK MODE ──────────────────────────────────────────── */
+.dark {
+  --button-outline: rgba(255,255,255, .08);
+  --badge-outline: rgba(255,255,255, .04);
+
+  --opaque-button-border-intensity: 8;
+
+  --elevate-1: rgba(255,255,255, .035);
+  --elevate-2: rgba(255,255,255, .08);
+
+  --background: 220 14% 14%;
+  --foreground: 42 30% 94%;
+  --border: 220 10% 24%;
+  --card: 220 14% 17%;
+  --card-foreground: 42 30% 94%;
+  --card-border: 220 10% 24%;
+  --sidebar: 220 14% 11%;
+  --sidebar-foreground: 42 30% 94%;
+  --sidebar-border: 220 10% 20%;
+  --sidebar-primary: 267 30% 68%;
+  --sidebar-primary-foreground: 220 14% 14%;
+  --sidebar-accent: 220 14% 17%;
+  --sidebar-accent-foreground: 42 30% 94%;
+  --sidebar-ring: 267 30% 68%;
+  --popover: 220 14% 14%;
+  --popover-foreground: 42 30% 94%;
+  --popover-border: 220 10% 24%;
+  --primary: 267 30% 68%;
+  --primary-foreground: 220 14% 14%;
+  --secondary: 220 14% 20%;
+  --secondary-foreground: 42 30% 94%;
+  --muted: 220 14% 20%;
+  --muted-foreground: 220 8% 58%;
+  --accent: 120 10% 24%;
+  --accent-foreground: 42 30% 94%;
+  --destructive: 4 72% 58%;
+  --destructive-foreground: 42 35% 97%;
+  --input: 220 10% 24%;
+  --ring: 267 30% 68%;
+  --chart-1: 267 30% 68%;
+  --chart-2: 120 20% 55%;
+  --chart-3: 32 55% 65%;
+  --chart-4: 200 40% 60%;
+  --chart-5: 340 30% 62%;
+
+  --shadow-2xs: 0 1px 2px 0 hsl(220 20% 5% / 0.30);
+  --shadow-xs:  0 1px 3px 0 hsl(220 20% 5% / 0.35), 0 1px 2px -1px hsl(220 20% 5% / 0.25);
+  --shadow-sm:  0 2px 4px 0 hsl(220 20% 5% / 0.35), 0 1px 3px -1px hsl(220 20% 5% / 0.25);
+  --shadow:     0 4px 8px -1px hsl(220 20% 5% / 0.40), 0 2px 4px -2px hsl(220 20% 5% / 0.25);
+  --shadow-md:  0 8px 16px -3px hsl(220 20% 5% / 0.45), 0 4px 6px -4px hsl(220 20% 5% / 0.25);
+  --shadow-lg:  0 16px 28px -5px hsl(220 20% 5% / 0.50), 0 8px 10px -6px hsl(220 20% 5% / 0.25);
+  --shadow-xl:  0 24px 40px -8px hsl(220 20% 5% / 0.55), 0 12px 16px -8px hsl(220 20% 5% / 0.25);
+  --shadow-2xl: 0 40px 64px -12px hsl(220 20% 5% / 0.65);
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* ─── BASE ───────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--app-font-serif);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  h4, h5, h6 {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Refined focus ring */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: calc(var(--radius) - 2px);
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+}
+
+/* ─── THOTH SURFACE UTILITIES ───────────────────────────── */
+@layer utilities {
+
+  /* Quiet card with elegant shadow — use instead of bare bg-card */
+  .thoth-card {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--card-border));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Elevated card — for modals, popovers, selection states */
+  .thoth-card-elevated {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--card-border));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Serif display text — for headings, hero, onboarding */
+  .thoth-heading {
+    font-family: var(--app-font-serif);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  /* Eyebrow label — small, tracked, uppercase */
+  .thoth-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Sage tinted surface for selected/active states */
+  .thoth-selected {
+    background-color: hsl(120 14% 89%);
+    border-color: hsl(120 20% 78%);
+  }
+
+  /* Primary selected — lilac tint */
+  .thoth-primary-selected {
+    background-color: hsl(var(--primary) / 0.08);
+    border-color: hsl(var(--primary) / 0.25);
+  }
+
+  /* ─── Input refinement ─── */
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* ─── Elevation system ─── */
+  .no-default-hover-elevate {}
+  .no-default-active-elevate {}
+
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after {
+    inset: -1px;
+  }
+
+  /* ─── RTL compatibility ─── */
+  [dir="rtl"] .thoth-card,
+  [dir="rtl"] .thoth-card-elevated {
+    text-align: right;
+  }
+}
